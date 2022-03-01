@@ -1,0 +1,70 @@
+.tile {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+  transform-style: preserve-3d;
+  transform: rotate3d(1, -1, 0, 7deg)
+    translateZ(calc(1px * var(--tile-width) * var(--z, 0)));
+  grid-row-start: var(--y);
+  grid-column-start: var(--x);
+}
+
+.face {
+  background: hsl(
+    var(--tile-color-hue, 0),
+    calc(1% * var(--tile-color-saturation, 0)),
+    calc(var(--highlighted, 0) * 50% + calc(1% * var(--tile-color-lightness)))
+  );
+  user-select: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 20px;
+}
+
+.front {
+  border-radius: 1px;
+  border: 1px solid
+    hsl(
+      var(--tile-color-hue, 0),
+      calc(1% * var(--tile-color-saturation, 0)),
+      calc(1% * var(--tile-color-lightness))
+    );
+  transform: translateZ(calc(1px * var(--tile-width)));
+  box-shadow: inset 0 0 calc(0.1px * var(--tile-width)) var(--tile-shadow-color);
+}
+
+.front img {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  filter: drop-shadow(1px 1px 1px var(--tile-shadow-color));
+}
+.right,
+.bottom {
+  background-color: hsl(
+    var(--tile-color-hue, 0),
+    calc(1% * var(--tile-color-saturation, 0)),
+    7%
+  );
+}
+.right {
+  transform-origin: right;
+  transform: rotateY(90deg);
+}
+.bottom {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+}
+
+.front svg {
+  filter: url("#naturalShadow");
+}

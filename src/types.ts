@@ -1,4 +1,4 @@
-import { TilePair } from "./utils";
+export type TilePair = [TileType, TileType] | undefined;
 
 export type SeasonTiles =
   | "SeasonsSpring"

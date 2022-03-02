@@ -1,5 +1,6 @@
-import type { BoardDefinition, BoardState } from "./types";
+import type { BoardDefinition, BoardState, TilePair } from "./types";
 import { shuffle } from "./utils";
+import { isSelectable, tilesMatch } from "./tiles";
 
 export const getBoardRows = (boardDefinition: BoardDefinition) => {
   const slotYs = boardDefinition.slots.map((slot) => slot.y);
@@ -26,4 +27,24 @@ export const createInitialState = (board: BoardDefinition) => {
     hints: undefined,
   };
   return result;
+};
+
+export const getHints = (boardState: BoardState): TilePair => {
+  const { tiles } = boardState;
+  const selectableTiles = tiles.filter((tile) =>
+    isSelectable(boardState, tile)
+  );
+
+  let pair: TilePair;
+
+  selectableTiles.some((outerItem, idx, selectableTiles) =>
+    selectableTiles.slice(idx + 1).some((innerItem) => {
+      const result = tilesMatch(innerItem.value, outerItem.value);
+      if (result) pair = [outerItem, innerItem];
+
+      return result;
+    })
+  );
+
+  return pair;
 };

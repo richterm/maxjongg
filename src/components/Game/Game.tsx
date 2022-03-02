@@ -8,9 +8,13 @@ import {
   BoardState,
   TileType,
 } from "../../types";
-import { createInitialState, getBoardColumns, getBoardRows } from "../../board";
+import {
+  createInitialState,
+  getBoardColumns,
+  getBoardRows,
+  getHints,
+} from "../../board";
 import { areEqualTiles, isSelectable, tilesMatch } from "../../tiles";
-import { getHints } from "../../utils";
 
 type GameProps = {
   boardDefinition: BoardDefinition;

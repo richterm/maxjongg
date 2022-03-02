@@ -20,8 +20,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "cross-env CI=true && yarn test:types && yarn test:lint && yarn test:jest && react-scripts build",
+    "test:jest": "react-scripts test",
+    "test:types": "tsc --noEmit",
+    "test:lint": "eslint src/**/*.ts",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

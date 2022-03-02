@@ -1,8 +1,8 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Properties } from "csstype";
 import "./Tile.css";
 import { TileValue } from "../../types";
-import Measure, { BoundingRect } from "react-measure";
+import Measure from "react-measure";
 import SVGTiles from "../../assets/tiles/svg";
 
 type TileProps = {
@@ -24,14 +24,12 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick = () => {},
 }) => {
-  const [bounds, setBounds] = useState<BoundingRect | undefined>();
   if (!value) return null;
 
   const SVG = SVGTiles[value];
-
   return (
-    <Measure bounds onResize={({ bounds }) => setBounds(bounds)}>
-      {({ measureRef }) => (
+    <Measure bounds>
+      {({ measureRef, contentRect: { bounds } }) => (
         <div
           ref={measureRef}
           className="tile"

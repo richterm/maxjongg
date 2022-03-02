@@ -1,5 +1,5 @@
 import { BoardDefinition, Slot, TileType, TileValue } from "../types";
-import { tilesMatch } from "../tiles";
+import { tileValuesMatch } from "../tiles";
 
 export const overlap = (slot1: Slot, slot2: Slot) => {
   const xDifference = Math.abs(slot1.x - slot2.x);
@@ -28,7 +28,7 @@ export const reducer = (
 
   const firstMatchingIndex = acc.tiles
     .slice(1)
-    .findIndex((tile2) => tilesMatch(tile1, tile2));
+    .findIndex((tile2) => tileValuesMatch(tile1, tile2));
 
   if (firstMatchingIndex === -1) {
     const tiles = acc.tiles.slice(1);
@@ -51,7 +51,7 @@ export const reducer = (
   });
 };
 
-export const allTilesMatchable = (tiles: Array<TileValue>) => {
+export const alltileValuesMatchable = (tiles: Array<TileValue>) => {
   const { result, noMatchFor } = tiles.reduce(reducer, {
     result: true,
     tiles: [...tiles],
@@ -70,6 +70,6 @@ export const getBoardIntegrity = (boardDefinition: BoardDefinition) => {
     tileCountEqualsSlotCount:
       boardDefinition.slots.length === boardDefinition.tiles.length,
     overlaps: anyOverlaps(boardDefinition.slots),
-    allTilesMatchable: allTilesMatchable(boardDefinition.tiles),
+    allTilesMatchable: alltileValuesMatchable(boardDefinition.tiles),
   };
 };

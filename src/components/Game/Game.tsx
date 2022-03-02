@@ -14,7 +14,7 @@ import {
   getBoardRows,
   getHints,
 } from "../../board";
-import { areEqualTiles, isSelectable, tilesMatch } from "../../tiles";
+import { areEqualTiles, isSelectable, tileValuesMatch } from "../../tiles";
 
 type GameProps = {
   boardDefinition: BoardDefinition;
@@ -35,7 +35,7 @@ const reducer = (state: BoardState, action: BoardAction): BoardState => {
         !isSelectable(state, action.tile)
       )
         return state;
-      if (!tilesMatch(action.tile.value, state.selected?.value)) {
+      if (!tileValuesMatch(action.tile.value, state.selected?.value)) {
         return {
           ...state,
           hints: undefined,

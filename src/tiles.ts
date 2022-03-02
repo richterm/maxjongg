@@ -84,13 +84,13 @@ export const isFlowerTile = (
   );
 };
 
-export const tilesMatch = (
-  tile1: TileValue | undefined,
-  tile2: TileValue | undefined
+export const tileValuesMatch = (
+  value1: TileValue | undefined,
+  value2: TileValue | undefined
 ) => {
-  if (isSeasonTile(tile1) && isSeasonTile(tile2)) return true;
-  if (isFlowerTile(tile1) && isFlowerTile(tile2)) return true;
-  return tile1 === tile2;
+  if (isSeasonTile(value1) && isSeasonTile(value2)) return true;
+  if (isFlowerTile(value1) && isFlowerTile(value2)) return true;
+  return value1 === value2;
 };
 
 export const isTileHinted = (boardState: BoardState, tile: TileType) => {

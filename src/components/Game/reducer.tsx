@@ -1,4 +1,4 @@
-import { BoardAction, BoardState } from "../../types";
+import type { BoardAction, BoardState } from "../../types";
 import {
   areEqualTiles,
   isSelectable,

@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { NaturalShadowFilter } from "../../assets/tiles/svg/common";
 import "./Board.css";
 import { Tile } from "../Tile/Tile";
-import { BoardState, TileType } from "../../types";
+import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
 
 type OnTileClickType = (tile: TileType) => void;

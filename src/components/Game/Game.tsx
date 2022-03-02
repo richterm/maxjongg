@@ -2,7 +2,7 @@ import { Properties } from "csstype";
 import React, { FC, useReducer } from "react";
 import { Board } from "../Board/Board";
 import "./Game.css";
-import { BoardDefinition } from "../../types";
+import type { BoardDefinition } from "../../types";
 import {
   createInitialState,
   getBoardColumns,

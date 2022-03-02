@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Properties } from "csstype";
 import "./Tile.css";
-import { TileValue } from "../../types";
+import type { TileValue } from "../../types";
 import Measure from "react-measure";
 import SVGTiles from "../../assets/tiles/svg";
 

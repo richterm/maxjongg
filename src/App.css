@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.octo-body {
+  filter: drop-shadow(3px 6px 3px #ff7ebd);
+  transition: filter 100ms ease-in-out;
+}
+.github-corner svg:hover .octo-body {
+  filter: drop-shadow(3px 6px 9px #ff7ebd);
+}

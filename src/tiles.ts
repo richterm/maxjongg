@@ -44,13 +44,12 @@ export const hasTilesOnTop = (boardState: BoardState, tile: TileType) => {
   return result;
 };
 
+export const tilesHaveEqualCoords = (tile1: TileType, tile2: TileType) => {
+  return tile1.x === tile2.x && tile1.y === tile2.y && tile1.z === tile2.z;
+};
+
 export const areEqualTiles = (tile1: TileType, tile2: TileType) => {
-  return (
-    tile1.x === tile2.x &&
-    tile1.y === tile2.y &&
-    tile1.z === tile2.z &&
-    tile1.value === tile2.value
-  );
+  return tilesHaveEqualCoords(tile1, tile2) && tile1.value === tile2.value;
 };
 
 export const isSelectable = (boardState: BoardState, tile: TileType) => {

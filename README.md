@@ -1,6 +1,6 @@
 # maxjongg
 
-This is an implementation of the famous Majong game (see https://en.wikipedia.org/wiki/Mahjong).
+This is an implementation of the famous Majong game (see [https://en.wikipedia.org/wiki/Mahjong](https://en.wikipedia.org/wiki/Mahjong)).
 
 ## Motivation
 

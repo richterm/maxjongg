@@ -1,7 +1,6 @@
 .board {
   flex: 1;
   display: grid;
-  aspect-ratio: calc(0.8 * var(--board-columns)) / var(--board-rows);
   max-width: 80vmin;
   max-height: 80vmin;
   grid-template-rows: repeat(var(--board-rows), 1fr);

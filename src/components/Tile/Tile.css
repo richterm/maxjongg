@@ -9,6 +9,7 @@
     translateZ(calc(1px * var(--tile-width) * var(--z, 0)));
   grid-row-start: var(--y);
   grid-column-start: var(--x);
+  aspect-ratio: 4 / 5;
 }
 
 .face {

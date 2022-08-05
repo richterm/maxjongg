@@ -32,13 +32,9 @@ export const Game: FC<GameProps> = ({ boardDefinition }) => {
   return (
     <div className="game" onDoubleClick={showHint}>
       <Board
-        style={
-          {
-            "--board-columns": getBoardColumns(boardDefinition),
-            "--board-rows": getBoardRows(boardDefinition),
-          } as Properties
-        }
         boardState={boardState}
+        columns={getBoardColumns(boardDefinition)}
+        rows={getBoardRows(boardDefinition)}
         onTileClick={(tile) => dispatch({ tile, type: "Select" })}
       />
     </div>

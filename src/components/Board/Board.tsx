@@ -40,6 +40,7 @@ export const Board: FC<BoardProps> = ({
           "--board-columns": columns,
           "--board-rows": rows,
           "--tile-width-base": 4,
+          "--tile-height-base": 5,
         } as Properties
       }
     >

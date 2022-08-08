@@ -1,4 +1,5 @@
 .tile {
+  --tile-width: calc(1em * var(--tile-width-base));
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -6,7 +7,7 @@
   grid-row-end: span 2;
   transform-style: preserve-3d;
   transform: rotate3d(1, -1, 0, 7deg)
-    translateZ(calc(1px * var(--tile-width) * var(--z, 0)));
+    translateZ(calc(var(--tile-width) * var(--z, 0)));
   grid-row-start: var(--y);
   grid-column-start: var(--x);
   aspect-ratio: 4 / 5;
@@ -31,8 +32,8 @@
 
 .front {
   border-radius: 1px;
-  transform: translateZ(calc(1px * var(--tile-width)));
-  box-shadow: inset 0 0 calc(0.1px * var(--tile-width)) var(--tile-shadow-color);
+  transform: translateZ(calc(var(--tile-width) / 2));
+  box-shadow: inset 0 0 calc(0.1 * var(--tile-width)) var(--tile-shadow-color);
 }
 
 .front img {

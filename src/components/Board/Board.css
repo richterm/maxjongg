@@ -1,4 +1,10 @@
 .board {
+  --font-size-horizontal: calc(50vw / (var(--columns) * var(--tile-width-base)));
+  --font-size-vertical: calc(50vh / (var(--rows) * var(--tile-height-base)));
+
+  font-size: min(var(--font-size-horizontal), var(--font-size-vertical));
+
+
   flex: 1;
   display: grid;
   max-width: 80vmin;

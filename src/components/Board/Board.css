@@ -4,6 +4,8 @@
 
   font-size: min(var(--font-size-horizontal), var(--font-size-vertical));
 
+  perspective-origin: 75% 110%;
+  perspective: 200em;
 
   flex: 1;
   display: grid;

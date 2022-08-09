@@ -1,12 +1,6 @@
 .board {
-  --font-size-horizontal: calc(50vw / (var(--board-columns) * var(--tile-width-base)));
-  --font-size-vertical: calc(50vh / (var(--board-rows) * var(--tile-height-base)));
-
-  font-size: min(var(--font-size-horizontal), var(--font-size-vertical));
-
   perspective-origin: 75% 110%;
   perspective: 200em;
-
   flex: 1;
   display: grid;
   max-width: 80vmin;

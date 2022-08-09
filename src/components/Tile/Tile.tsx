@@ -39,11 +39,7 @@ export const Tile: FC<TileProps> = ({
         } as Properties
       }
     >
-      <div className="face front">
-        <SVG />
-      </div>
-      <div className="face right"></div>
-      <div className="face bottom"></div>
+      <SVG />
     </div>
   );
 };

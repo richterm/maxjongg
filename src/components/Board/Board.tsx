@@ -41,6 +41,7 @@ export const Board: FC<BoardProps> = ({
           "--board-rows": rows,
           "--tile-width-base": 4,
           "--tile-height-base": 5,
+          "--tile-width": "calc(1em * var(--tile-width-base))",
         } as Properties
       }
     >

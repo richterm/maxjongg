@@ -1,68 +1,29 @@
 .tile {
-  --tile-width: calc(1em * var(--tile-width-base));
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
+  align-items: center;
+  justify-content: center;
   grid-column-end: span 2;
   grid-row-end: span 2;
   transform-style: preserve-3d;
   transform: translateZ(calc(var(--tile-width)*var(--z, 0)));
   grid-row-start: var(--y);
   grid-column-start: var(--x);
-  aspect-ratio: 4 / 5;
-}
-
-.face {
+  aspect-ratio: var(--tile-width-base) / var(--tile-height-base);
   background: hsl(
     var(--tile-color-hue, 0),
     calc(1% * var(--tile-color-saturation, 0)),
     calc(var(--highlighted, 0) * 50% + calc(1% * var(--tile-color-lightness)))
   );
   user-select: none;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  font-size: 20px;
-}
-
-.front {
   border-radius: 1px;
-  transform: translateZ(calc(var(--tile-width) / 2));
   border: .1vmin solid hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(50% + 1%*var(--tile-color-lightness)));
   box-shadow: inset 0 0 calc(var(--tile-width)*.1) var(--tile-shadow-color),
-      .25vmin .25vmin .25vmin hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(var(--highlighted, 0)*50% + 1%*var(--tile-color-lightness)));
+        .25vmin .25vmin .25vmin hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(var(--highlighted, 0)*50% + 1%*var(--tile-color-lightness)));
+  
 }
 
-.front img {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  filter: drop-shadow(1px 1px 1px var(--tile-shadow-color));
-}
-.right,
-.bottom {
-  display: none;
-  background-color: hsl(
-    var(--tile-color-hue, 0),
-    calc(1% * var(--tile-color-saturation, 0)),
-    7%
-  );
-}
-.right {
-  transform-origin: right;
-  transform: rotateY(90deg);
-}
-.bottom {
-  transform-origin: bottom;
-  transform: rotateX(-90deg);
-}
-
-.front svg {
+.tile svg {
   filter: url("#naturalShadow");
 }

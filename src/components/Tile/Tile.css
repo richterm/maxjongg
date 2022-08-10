@@ -1,4 +1,8 @@
 .tile {
+  --3d-bg-color: hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(var(--highlighted, 0)*50% + 1%*var(--tile-color-lightness)));
+  --3d-bg-color-inverted: hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc((1 - var(--highlighted, 0))*50% + 1%*var(--tile-color-lightness)));
+  box-shadow: inset 0 0 calc(var(--tile-width)*.1) var(--3d-bg-color-inverted);
+
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -19,9 +23,28 @@
   user-select: none;
   border-radius: 1px;
   border: .1vmin solid hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(50% + 1%*var(--tile-color-lightness)));
-  box-shadow: inset 0 0 calc(var(--tile-width)*.1) var(--tile-shadow-color),
-        .25vmin .25vmin .25vmin hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(var(--highlighted, 0)*50% + 1%*var(--tile-color-lightness)));
-  
+}
+
+.tile:before,
+.tile:after {
+    border: 0.1vmin solid hsl(var(--tile-color-hue,0),calc(1%*var(--tile-color-saturation, 0)),calc(50% + 1%*var(--tile-color-lightness)));
+    border-radius: 1px;
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--3d-bg-color);
+    box-sizing: border-box;
+}
+
+.tile:before {
+    transform-origin: right;
+    transform: rotateY(90deg) translateX(100%);
+}
+
+.tile:after {
+    transform-origin: bottom;
+    transform: rotateX(90deg);
 }
 
 .tile svg {

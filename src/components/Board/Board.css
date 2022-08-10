@@ -1,6 +1,6 @@
 .board {
-  perspective-origin: 75% 110%;
-  perspective: 200em;
+  perspective: 300em;
+  perspective-origin: 125% 125%;
   flex: 1;
   display: grid;
   max-width: 80vmin;

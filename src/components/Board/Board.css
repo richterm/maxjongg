@@ -1,11 +1,17 @@
 .board {
+  --aspect-ratio-x: calc(var(--board-columns) * var(--tile-width-base));
+  --aspect-ratio-y: calc(var(--board-rows) * var(--tile-height-base));
+  --aspect-ratio: var(--aspect-ratio-x) / var(--aspect-ratio-y);
+  --max-size: calc((var(--aspect-ratio-x) / var(--aspect-ratio-y)) * 80vmin);
+
   perspective: 300em;
   perspective-origin: 125% 125%;
   flex: 1;
   display: grid;
-  max-width: 80vmin;
-  max-height: 80vmin;
+  aspect-ratio: var(--aspect-ratio);
   grid-template-rows: repeat(var(--board-rows), 1fr);
   grid-template-columns: repeat(var(--board-columns), 1fr);
   margin: 0 auto;
+  max-width: var(--max-size);
+  max-height: var(--max-size);
 }

@@ -23,6 +23,8 @@ export const Board: FC<BoardProps> = ({
   rows,
   style,
 }) => {
+  const tileWidthBase = 4;
+  const tileHeightBase = 5;
   return (
     <div
       className="board"
@@ -39,8 +41,8 @@ export const Board: FC<BoardProps> = ({
           "--tile-shadow-color": "rgba(255,255,255,.25)",
           "--board-columns": columns,
           "--board-rows": rows,
-          "--tile-width-base": 4,
-          "--tile-height-base": 5,
+          "--tile-width-base": tileWidthBase,
+          "--tile-height-base": tileHeightBase,
           "--tile-width": "calc(1em * var(--tile-width-base))",
         } as Properties
       }

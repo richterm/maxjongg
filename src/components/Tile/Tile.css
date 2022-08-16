@@ -10,7 +10,7 @@
   grid-column-end: span 2;
   grid-row-end: span 2;
   transform-style: preserve-3d;
-  transform: translateZ(calc(var(--tile-width)*var(--z, 0)));
+  transform: translateZ(calc(2 * (var(--tile-width-base) / var(--tile-height-base)) * var(--tile-width) * var(--z, 0)));
   grid-row-start: var(--y);
   grid-column-start: var(--x);
   aspect-ratio: var(--tile-width-base) / var(--tile-height-base);

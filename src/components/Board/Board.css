@@ -1,5 +1,5 @@
 .board {
-  perspective: 300em;
+  perspective: 400em;
   perspective-origin: 125% 125%;
   flex: 1;
   display: grid;

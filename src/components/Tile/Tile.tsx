@@ -73,12 +73,3 @@ export const Tile: FC<TileProps> = ({
     </mesh>
   );
 };
-
-/*
-        {/*         <texture
-          image={"/png/" + value + ".png"}
-          attach="map"
-          repeat={new THREE.Vector2(1, 1)}
-          center={new THREE.Vector2(0, 0.5)}
-        />
- */

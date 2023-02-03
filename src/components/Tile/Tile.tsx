@@ -40,15 +40,6 @@ export const Tile: FC<TileProps> = ({
   map.wrapS = THREE.RepeatWrapping;
   map.wrapT = THREE.RepeatWrapping;
 
-  const material1 = new THREE.MeshPhongMaterial({
-    map,
-    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
-  });
-
-  const material2 = new THREE.MeshPhongMaterial({
-    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
-  });
-
   return (
     <mesh
       position={[x, y, z]}
@@ -56,16 +47,33 @@ export const Tile: FC<TileProps> = ({
         event.stopPropagation();
         onClick();
       }}
-      material={[
-        material2,
-        material2,
-        material2,
-        material2,
-        material1,
-        material2,
-      ]}
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        attach="material-0"
+      />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        attach="material-1"
+      />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        attach="material-2"
+      />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        attach="material-3"
+      />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        map={map}
+        attach="material-4"
+      />
+      <meshPhongMaterial
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        attach="material-5"
+      />
       <Edges
         scale={1}
         color={selected || hinted ? Color.darkblue : Color.lightblue}

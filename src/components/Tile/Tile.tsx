@@ -3,6 +3,7 @@ import * as THREE from "three";
 import type { TileValue } from "../../types";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
+import { Edges } from "@react-three/drei";
 
 type TileProps = {
   value?: TileValue;
@@ -65,11 +66,10 @@ export const Tile: FC<TileProps> = ({
       ]}
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
-      {/*       <meshPhongMaterial
-        map={map}
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <Edges
+        scale={1}
+        color={selected || hinted ? Color.darkblue : Color.lightblue}
       />
- */}{" "}
     </mesh>
   );
 };

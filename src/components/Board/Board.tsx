@@ -22,6 +22,7 @@ export const Board: FC<BoardProps> = ({
 }) => {
   return (
     <Canvas
+      orthographic
       camera={{
         fov: 45,
         position: [columns / 2, rows / 2, 100],

@@ -30,8 +30,8 @@ export const Board: FC<BoardProps> = ({
       <CameraControls />
       <pointLight
         position={[columns / 2 + 2, rows / 2 + 2, 10]}
-        intensity={5}
-        color={"white"}
+        intensity={1}
+        color={"#fefefe"}
       />
       {boardState.tiles.map((tile) => {
         return (

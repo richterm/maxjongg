@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { Properties } from "csstype";
-import "./Tile.css";
+import * as THREE from "three";
 import type { TileValue } from "../../types";
-import SVGTiles from "../../assets/tiles/svg";
+import { useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three";
 
 type TileProps = {
   value?: TileValue;
@@ -14,6 +14,15 @@ type TileProps = {
   onClick?: () => void;
 };
 
+const height = 2;
+const width = 2;
+const depth = 1;
+
+enum Color {
+  lightblue = "hsl(263, 27%, 68%)",
+  darkblue = "hsl(263, 27%, 18%)",
+}
+
 export const Tile: FC<TileProps> = ({
   value,
   x,
@@ -23,23 +32,53 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick = () => {},
 }) => {
+  const map = useLoader(TextureLoader, `/png/${value}.png`);
   if (!value) return null;
+  map.repeat = new THREE.Vector2(1, 1);
+  map.center = new THREE.Vector2(0, 0.5);
+  map.wrapS = THREE.RepeatWrapping;
+  map.wrapT = THREE.RepeatWrapping;
 
-  const SVG = SVGTiles[value];
+  const material1 = new THREE.MeshPhongMaterial({
+    map,
+    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
+  });
+
+  const material2 = new THREE.MeshPhongMaterial({
+    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
+  });
+
   return (
-    <div
-      className="tile"
-      onClick={onClick}
-      style={
-        {
-          "--highlighted": selected || hinted ? 1 : undefined,
-          "--x": x,
-          "--y": y,
-          "--z": z,
-        } as Properties
-      }
+    <mesh
+      position={[x, y, z]}
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick();
+      }}
+      material={[
+        material2,
+        material2,
+        material2,
+        material2,
+        material1,
+        material2,
+      ]}
     >
-      <SVG />
-    </div>
+      <boxGeometry args={[width, height, depth]} attach="geometry" />
+      {/*       <meshPhongMaterial
+        map={map}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      />
+ */}{" "}
+    </mesh>
   );
 };
+
+/*
+        {/*         <texture
+          image={"/png/" + value + ".png"}
+          attach="map"
+          repeat={new THREE.Vector2(1, 1)}
+          center={new THREE.Vector2(0, 0.5)}
+        />
+ */

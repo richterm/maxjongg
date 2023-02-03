@@ -1,4 +1,3 @@
-import { Properties } from "csstype";
 import React, { FC, useReducer } from "react";
 import { Board } from "../Board/Board";
 import "./Game.css";

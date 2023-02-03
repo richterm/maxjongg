@@ -31,7 +31,7 @@ export const Board: FC<BoardProps> = ({
       <pointLight
         position={[columns / 2 + 2, rows / 2 + 2, 10]}
         intensity={5}
-        color={"hotpink"}
+        color={"white"}
       />
       {boardState.tiles.map((tile) => {
         return (

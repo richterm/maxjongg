@@ -8,7 +8,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Tile>;
 
-const Wrapper: React.FC = ({ children }) => {
+const Wrapper: React.FC<{ children: any }> = ({ children }) => {
   return (
     <div
       style={

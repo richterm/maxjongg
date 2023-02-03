@@ -1,7 +1,6 @@
-import { Properties } from "csstype";
 import React, { FC } from "react";
-import { NaturalShadowFilter } from "../../assets/tiles/svg/common";
-import "./Board.css";
+import { Canvas } from "@react-three/fiber";
+import { CameraControls } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
@@ -11,7 +10,6 @@ type OnTileClickType = (tile: TileType) => void;
 type BoardProps = {
   boardState: BoardState;
   onTileClick: OnTileClickType;
-  style?: Properties;
   columns: number;
   rows: number;
 };
@@ -19,35 +17,22 @@ type BoardProps = {
 export const Board: FC<BoardProps> = ({
   boardState,
   columns,
-  onTileClick,
   rows,
-  style,
+  onTileClick,
 }) => {
-  const tileWidthBase = 4;
-  const tileHeightBase = 5;
   return (
-    <div
-      className="board"
-      style={
-        {
-          ...style,
-          "--red": "#ff7ebd",
-          "--green": "#72f1b8",
-          "--orange": "#fede5d",
-          "--blue": "#03edf9",
-          "--tile-color-hue": 263,
-          "--tile-color-saturation": 27,
-          "--tile-color-lightness": 18,
-          "--tile-shadow-color": "rgba(255,255,255,.25)",
-          "--board-columns": columns,
-          "--board-rows": rows,
-          "--tile-width-base": tileWidthBase,
-          "--tile-height-base": tileHeightBase,
-          "--tile-width": "calc(1em * var(--tile-width-base))",
-        } as Properties
-      }
+    <Canvas
+      camera={{
+        fov: 45,
+        position: [columns / 2, rows / 2, 100],
+      }}
     >
-      <NaturalShadowFilter />
+      <CameraControls />
+      <pointLight
+        position={[columns / 2 + 2, rows / 2 + 2, 10]}
+        intensity={5}
+        color={"hotpink"}
+      />
       {boardState.tiles.map((tile) => {
         return (
           <Tile
@@ -62,6 +47,6 @@ export const Board: FC<BoardProps> = ({
           />
         );
       })}
-    </div>
+    </Canvas>
   );
 };

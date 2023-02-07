@@ -7,7 +7,7 @@ export const overlap = (slot1: Slot, slot2: Slot) => {
   return xDifference < 2 && yDifference < 2 && slot1.z === slot2.z;
 };
 
-export const anyOverlaps = (tiles: Array<TileType>) =>
+export const anyOverlaps = (tiles: Array<Slot>) =>
   tiles.some((tile1, idx, tiles) =>
     tiles.slice(idx + 1).some((tile2) => overlap(tile1, tile2))
   );

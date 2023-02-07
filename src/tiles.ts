@@ -14,7 +14,7 @@ export const hasLeftNeighbors = (boardState: BoardState, tile: TileType) => {
       tileOnBoard.z === tile.z
   );
   const result = candidates.some(
-    (tileOnBoard) => tileOnBoard.value !== undefined
+    (tileOnBoard) => tileOnBoard.visible
   );
   return result;
 };
@@ -27,7 +27,7 @@ export const hasRightNeighbors = (boardState: BoardState, tile: TileType) => {
       tileOnBoard.z === tile.z
   );
   const result = candidates.some(
-    (tileOnBoard) => tileOnBoard.value !== undefined
+    (tileOnBoard) => tileOnBoard.visible
   );
   return result;
 };
@@ -40,7 +40,7 @@ export const hasTilesOnTop = (boardState: BoardState, tile: TileType) => {
         [tile.x - 1, tile.x, tile.x + 1].includes(tileOnBoard.x) &&
         [tile.y - 1, tile.y, tile.y + 1].includes(tileOnBoard.y)
     )
-    .some((tileOnBoard) => tileOnBoard.value !== undefined);
+    .some((tileOnBoard) => tileOnBoard.visible);
   return result;
 };
 
@@ -54,7 +54,7 @@ export const areEqualTiles = (tile1: TileType, tile2: TileType) => {
 
 export const isSelectable = (boardState: BoardState, tile: TileType) => {
   return (
-    tile.value !== undefined &&
+    tile.visible &&
     (!hasLeftNeighbors(boardState, tile) ||
       !hasRightNeighbors(boardState, tile)) &&
     !hasTilesOnTop(boardState, tile)

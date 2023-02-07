@@ -22,6 +22,7 @@ export const createInitialState = (board: BoardDefinition) => {
     tiles: copy.slots.map((slot, idx) => ({
       ...slot,
       value: copy.tiles[idx],
+      visible: true
     })),
     selected: undefined,
     hints: undefined,

@@ -73,7 +73,8 @@ export type BoardAction =
     };
 
 export type TileType = Slot & {
-  value?: TileValue;
+  value: TileValue;
+  visible: boolean;
 };
 
 export type BoardState = {

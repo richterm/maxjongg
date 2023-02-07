@@ -4,9 +4,11 @@ import type { TileValue } from "../../types";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Edges } from "@react-three/drei";
+import { animated, useSpring } from "@react-spring/three"
 
 type TileProps = {
-  value?: TileValue;
+  visible: boolean;
+  value: TileValue;
   x: number;
   y: number;
   z: number;
@@ -25,6 +27,7 @@ enum Color {
 }
 
 export const Tile: FC<TileProps> = ({
+  visible,
   value,
   x,
   y,
@@ -33,51 +36,52 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick = () => {},
 }) => {
+  const spring = useSpring({ scale: visible ? 1 : 0 });
   const map = useLoader(TextureLoader, `/png/${value}.png`);
-  if (!value) return null;
   map.repeat = new THREE.Vector2(1, 1);
   map.center = new THREE.Vector2(0, 0.5);
   map.wrapS = THREE.RepeatWrapping;
   map.wrapT = THREE.RepeatWrapping;
 
   return (
-    <mesh
+    <animated.mesh
       position={[x, y, z]}
       onClick={(event) => {
         event.stopPropagation();
         onClick();
       }}
+      scale={spring.scale}
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         attach="material-0"
       />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         attach="material-1"
       />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         attach="material-2"
       />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         attach="material-3"
       />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         map={map}
         attach="material-4"
       />
       <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
         attach="material-5"
       />
       <Edges
         scale={1}
         color={selected || hinted ? Color.darkblue : Color.lightblue}
       />
-    </mesh>
+    </animated.mesh>
   );
 };

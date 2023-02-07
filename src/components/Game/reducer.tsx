@@ -36,7 +36,7 @@ export const reducer = (state: BoardState, action: BoardAction): BoardState => {
             tilesHaveEqualCoords(tile, state.selected))
             ? {
                 ...tile,
-                value: undefined,
+                visible: false,
               }
             : tile
         ),

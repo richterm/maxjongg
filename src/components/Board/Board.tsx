@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { CameraControls } from "@react-three/drei/core";
+import { CameraControls, PerspectiveCamera } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
@@ -22,15 +22,14 @@ export const Board: FC<BoardProps> = ({
 }) => {
   return (
     <Canvas
-      orthographic
       camera={{
         fov: 45,
-        position: [columns / 2, rows / 2, 100],
+        position: [columns / -10, rows / 5, 40],
       }}
     >
-      <CameraControls />
+      <CameraControls dampingFactor={100} />
       <pointLight
-        position={[columns / 2 + 2, rows / 2 + 2, 10]}
+        position={[columns / 2 + 2, rows / 2 + 2, 100]}
         intensity={1}
         color={"#fefefe"}
       />

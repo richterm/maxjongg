@@ -26,6 +26,9 @@ enum Color {
   darkblue = "hsl(263, 27%, 18%)",
 }
 
+const AnimatedMeshPhongMaterial = animated.meshPhongMaterial;
+const AnimatedEdges = animated(Edges);
+
 export const Tile: FC<TileProps> = ({
   visible,
   value,
@@ -37,6 +40,10 @@ export const Tile: FC<TileProps> = ({
   onClick = () => {},
 }) => {
   const spring = useSpring({ scale: visible ? 1 : 0 });
+  const spring2 = useSpring({
+    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
+    edgesColor: selected || hinted ? Color.darkblue : Color.lightblue,
+  });
   const map = useLoader(TextureLoader, `/png/${value}.png`);
   map.repeat = new THREE.Vector2(1, 1);
   map.center = new THREE.Vector2(0, 0.5);
@@ -53,35 +60,33 @@ export const Tile: FC<TileProps> = ({
       scale={spring.scale}
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      {/* @ts-ignore */}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         attach="material-0"
       />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         attach="material-1"
       />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         attach="material-2"
       />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         attach="material-3"
       />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         map={map}
         attach="material-4"
       />
-      <meshPhongMaterial
-        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
+      <AnimatedMeshPhongMaterial
+        emissive={spring2.emissive}
         attach="material-5"
       />
-      <Edges
-        scale={1}
-        color={selected || hinted ? Color.darkblue : Color.lightblue}
-      />
+      <AnimatedEdges scale={1} color={spring2.edgesColor} />
     </animated.mesh>
   );
 };

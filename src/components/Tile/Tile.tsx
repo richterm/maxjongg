@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import * as THREE from "three";
+import { FC } from "react";
 import type { TileValue } from "../../types";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { CameraControls, PerspectiveCamera } from "@react-three/drei/core";
+import { CameraControls } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";

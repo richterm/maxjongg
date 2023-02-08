@@ -39,16 +39,12 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick = () => {},
 }) => {
-  const spring = useSpring({ scale: visible ? 1 : 0 });
-  const spring2 = useSpring({
+  const scaleSpring = useSpring({ scale: visible ? 1 : 0 });
+  const colorSpring = useSpring({
     emissive: selected || hinted ? Color.lightblue : Color.darkblue,
     edgesColor: selected || hinted ? Color.darkblue : Color.lightblue,
   });
   const map = useLoader(TextureLoader, `/png/${value}.png`);
-  map.repeat = new THREE.Vector2(1, 1);
-  map.center = new THREE.Vector2(0, 0.5);
-  map.wrapS = THREE.RepeatWrapping;
-  map.wrapT = THREE.RepeatWrapping;
 
   return (
     <animated.mesh
@@ -57,36 +53,36 @@ export const Tile: FC<TileProps> = ({
         event.stopPropagation();
         onClick();
       }}
-      scale={spring.scale}
+      scale={scaleSpring.scale}
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       {/* @ts-ignore */}
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         attach="material-0"
       />
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         attach="material-1"
       />
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         attach="material-2"
       />
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         attach="material-3"
       />
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         map={map}
         attach="material-4"
       />
       <AnimatedMeshPhongMaterial
-        emissive={spring2.emissive}
+        emissive={colorSpring.emissive}
         attach="material-5"
       />
-      <AnimatedEdges scale={1} color={spring2.edgesColor} />
+      <AnimatedEdges scale={1} color={colorSpring.edgesColor} />
     </animated.mesh>
   );
 };

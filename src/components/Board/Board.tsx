@@ -27,7 +27,7 @@ export const Board: FC<BoardProps> = ({
         position: [columns / -10, rows / 5, 40],
       }}
     >
-      <CameraControls dampingFactor={100} />
+      <CameraControls smoothTime={0.2} />
       <pointLight
         position={[columns / 2 + 2, rows / 2 + 2, 100]}
         intensity={1}

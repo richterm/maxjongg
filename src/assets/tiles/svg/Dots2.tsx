@@ -37,7 +37,7 @@ const SVG = () => {
                   <path
                     id="path4301"
                     style={{
-                      fill: "var(--blue)",
+                      fill: "#03edf9",
                     }}
                     d="M-14.2,88.6c0,3.7-3,6.7-6.7,6.7s-6.7-3-6.7-6.7s3-6.7,6.7-6.7S-14.2,84.9-14.2,88.6z"
                   />
@@ -74,7 +74,7 @@ const SVG = () => {
                   <g id="g3911" transform="translate(0,4)">
                     <path
                       id="path3899"
-                      style={{ fill: "var(--green)" }}
+                      style={{ fill: "#72f1b8" }}
                       d="M-14.2,88.6c0,3.7-3,6.7-6.7,6.7s-6.7-3-6.7-6.7s3-6.7,6.7-6.7S-14.2,84.9-14.2,88.6z"
                     />
                     <g

@@ -34,7 +34,7 @@ const SVG = () => {
                   id="path4291"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.378,
                     strokeLinecap: "round",
                   }}
@@ -45,7 +45,7 @@ const SVG = () => {
                   id="path4295"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.6285,
                     strokeLinecap: "round",
                   }}
@@ -55,7 +55,7 @@ const SVG = () => {
                   id="path4327"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-20.9,78v3.6"
@@ -64,7 +64,7 @@ const SVG = () => {
                   id="path4346"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-31.4,88.5h3.6"
@@ -73,7 +73,7 @@ const SVG = () => {
                   id="path4356"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-20.9,99v-3.6"
@@ -82,7 +82,7 @@ const SVG = () => {
                   id="path4358"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-10.4,88.5H-14"
@@ -91,7 +91,7 @@ const SVG = () => {
                   id="path4360"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-28.3,81.1l2.5,2.5"
@@ -100,7 +100,7 @@ const SVG = () => {
                   id="path4362"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-28.3,96l2.5-2.5"
@@ -109,7 +109,7 @@ const SVG = () => {
                   id="path4364"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-13.5,96l-2.5-2.5"
@@ -118,7 +118,7 @@ const SVG = () => {
                   id="path4366"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-13.5,81.1l-2.5,2.5"
@@ -127,7 +127,7 @@ const SVG = () => {
                   id="path4376"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-24.9,78.8l1.4,3.3"
@@ -136,7 +136,7 @@ const SVG = () => {
                   id="path4378"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-30.6,92.6l3.3-1.4"
@@ -145,7 +145,7 @@ const SVG = () => {
                   id="path4380"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-16.9,98.2l-1.4-3.3"
@@ -154,7 +154,7 @@ const SVG = () => {
                   id="path4382"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-11.2,84.5l-3.3,1.4"
@@ -163,7 +163,7 @@ const SVG = () => {
                   id="path4384"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-30.6,84.5l3.3,1.4"
@@ -172,7 +172,7 @@ const SVG = () => {
                   id="path4386"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-24.9,98.2l1.4-3.3"
@@ -181,7 +181,7 @@ const SVG = () => {
                   id="path4388"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-11.2,92.6l-3.3-1.4"
@@ -190,7 +190,7 @@ const SVG = () => {
                   id="path4390"
                   style={{
                     fill: "none",
-                    stroke: "var(--green)",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                   }}
                   d="M-16.9,78.8l-1.4,3.3"
@@ -199,8 +199,8 @@ const SVG = () => {
                 <path
                   id="path4301"
                   style={{
-                    fill: "var(--red)",
-                    stroke: "var(--green)",
+                    fill: "#ff7ebd",
+                    stroke: "#72f1b8",
                     strokeWidth: 1.5,
                     strokeLinecap: "round",
                   }}

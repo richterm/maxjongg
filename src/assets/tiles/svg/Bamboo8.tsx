@@ -29,8 +29,8 @@ const SVG = () => {
           <g>
             <path
               style={{
-                fill: "var(--green)",
-                stroke: "var(--green)",
+                fill: "#72f1b8",
+                stroke: "#72f1b8",
                 strokeWidth: 2,
                 strokeMiterlimit: 10,
               }}
@@ -38,8 +38,8 @@ const SVG = () => {
             />
             <path
               style={{
-                fill: "var(--green)",
-                stroke: "var(--green)",
+                fill: "#72f1b8",
+                stroke: "#72f1b8",
                 strokeWidth: 2,
                 strokeMiterlimit: 10,
               }}

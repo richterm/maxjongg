@@ -4,7 +4,7 @@ import type { TileValue } from "../../types";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Edges } from "@react-three/drei";
-import { animated, useSpring } from "@react-spring/three"
+import { animated, useSpring } from "@react-spring/three";
 
 type TileProps = {
   visible: boolean;
@@ -22,7 +22,7 @@ const width = 2;
 const depth = 1;
 
 enum Color {
-  lightblue = "hsl(263, 27%, 68%)",
+  lightblue = "hsl(263, 27%, 52%)",
   darkblue = "hsl(263, 27%, 18%)",
 }
 
@@ -54,28 +54,28 @@ export const Tile: FC<TileProps> = ({
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         attach="material-0"
       />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         attach="material-1"
       />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         attach="material-2"
       />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         attach="material-3"
       />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         map={map}
         attach="material-4"
       />
       <meshPhongMaterial
-        emissive={(selected || hinted) ? Color.lightblue : Color.darkblue}
+        emissive={selected || hinted ? Color.lightblue : Color.darkblue}
         attach="material-5"
       />
       <Edges

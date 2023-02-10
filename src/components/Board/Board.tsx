@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Bounds, OrbitControls } from "@react-three/drei/core";
+import { Bounds, Circle, OrbitControls, Plane } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
@@ -29,7 +29,7 @@ export const Board: FC<BoardProps> = ({
     >
       <OrbitControls makeDefault dampingFactor={0.1} />
       <pointLight position={[0, 0, 100]} intensity={1} color={"white"} />
-      <Bounds fit observe margin={1} clip>
+      <Bounds fit margin={1} clip>
         {boardState.tiles.map((tile) => {
           return (
             <Tile

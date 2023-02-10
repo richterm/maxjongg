@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Bounds, CameraControls, OrbitControls } from "@react-three/drei/core";
+import { Bounds, OrbitControls } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";

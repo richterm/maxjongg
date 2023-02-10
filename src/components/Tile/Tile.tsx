@@ -21,8 +21,8 @@ const width = 2;
 const depth = 1;
 
 enum Color {
-  lightblue = "hsl(263, 27%, 52%)",
-  darkblue = "hsl(263, 27%, 18%)",
+  light = "hsl(263, 27%, 58%)",
+  dark = "hsl(263, 27%, 18%)",
 }
 
 const AnimatedMeshPhongMaterial = animated.meshPhongMaterial;
@@ -40,9 +40,10 @@ export const Tile: FC<TileProps> = ({
 }) => {
   const scaleSpring = useSpring({ scale: visible ? 1 : 0 });
   const colorSpring = useSpring({
-    emissive: selected || hinted ? Color.lightblue : Color.darkblue,
-    edgesColor: selected || hinted ? Color.darkblue : Color.lightblue,
+    emissive: selected || hinted ? Color.light : Color.dark,
+    edgesColor: selected || hinted ? Color.dark : Color.light,
   });
+  const normalMap = useLoader(TextureLoader, `/png/bark_willow_nor_gl_1k.jpg`);
   const map = useLoader(TextureLoader, `/png/${value}.png`);
 
   return (
@@ -57,27 +58,33 @@ export const Tile: FC<TileProps> = ({
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       {/* @ts-ignore */}
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-0"
       />
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-1"
       />
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-2"
       />
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-3"
       />
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         map={map}
         attach="material-4"
       />
       <AnimatedMeshPhongMaterial
+        normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-5"
       />

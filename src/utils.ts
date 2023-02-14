@@ -10,3 +10,7 @@ export const shuffle = (a: Array<any>) => {
 };
 
 export const getRandomIndex = (max: number) => Math.floor(Math.random() * max);
+
+export const getRandomColor = () => {
+  return `rgba(${getRandomIndex(256)}, ${getRandomIndex(256)}, ${getRandomIndex(256)}, 0.9)`
+}

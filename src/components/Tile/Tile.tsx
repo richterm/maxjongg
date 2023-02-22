@@ -25,7 +25,7 @@ enum Color {
   dark = "hsl(263, 27%, 18%)",
 }
 
-const AnimatedMeshPhongMaterial = animated.meshPhongMaterial;
+const AnimatedMeshPhysicalMaterial = animated.meshPhysicalMaterial;
 const AnimatedEdges = animated(Edges);
 
 export const Tile: FC<TileProps> = ({
@@ -57,33 +57,45 @@ export const Tile: FC<TileProps> = ({
     >
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       {/* @ts-ignore */}
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-0"
       />
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-1"
       />
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-2"
       />
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-3"
       />
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         map={map}
         attach="material-4"
       />
-      <AnimatedMeshPhongMaterial
+      <AnimatedMeshPhysicalMaterial
+        clearcoat={.5}
+        clearcoatRoughness={.35}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-5"

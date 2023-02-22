@@ -28,7 +28,7 @@ export const Board: FC<BoardProps> = ({
       }}
     >
       <OrbitControls makeDefault dampingFactor={0.1} />
-      <pointLight position={[0, 0, 100]} intensity={1} color={"white"} />
+      <pointLight position={[0, 0 ,100]} intensity={.5} color={"white"}  />
       <Bounds fit margin={1} clip>
         {boardState.tiles.map((tile) => {
           return (

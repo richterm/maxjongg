@@ -2,18 +2,56 @@ import type { BoardDefinition, BoardState, TilePair } from "./types";
 import { shuffle } from "./utils";
 import { isSelectable, tileValuesMatch } from "./tiles";
 
-export const getBoardRows = (boardDefinition: BoardDefinition) => {
-  const slotYs = boardDefinition.slots.map((slot) => slot.y);
-  const minY = Math.min(...slotYs);
-  const maxY = Math.max(...slotYs) + 2;
-  return maxY - minY;
+export type Dimensions = {
+  mins: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  maxs: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  avgs: {
+    x: number;
+    y: number;
+    z: number;
+  };
 };
 
-export const getBoardColumns = (boardDefinition: BoardDefinition) => {
+export const getBoardDimensions = (
+  boardDefinition: BoardDefinition
+): Dimensions => {
   const slotXs = boardDefinition.slots.map((slot) => slot.x);
   const minX = Math.min(...slotXs);
   const maxX = Math.max(...slotXs) + 2;
-  return maxX - minX;
+
+  const slotYs = boardDefinition.slots.map((slot) => slot.y);
+  const minY = Math.min(...slotYs);
+  const maxY = Math.max(...slotYs) + 2;
+
+  const slotZs = boardDefinition.slots.map((slot) => slot.z);
+  const minZ = Math.min(...slotZs);
+  const maxZ = Math.max(...slotZs) + 2;
+
+  return {
+    mins: {
+      x: minX,
+      y: minY,
+      z: minZ,
+    },
+    maxs: {
+      x: maxX,
+      y: maxY,
+      z: maxZ,
+    },
+    avgs: {
+      x: maxX - minX / 2,
+      y: maxY - minY / 2,
+      z: maxZ - minZ / 2,
+    },
+  };
 };
 
 export const createInitialState = (board: BoardDefinition) => {
@@ -22,7 +60,7 @@ export const createInitialState = (board: BoardDefinition) => {
     tiles: copy.slots.map((slot, idx) => ({
       ...slot,
       value: copy.tiles[idx],
-      visible: true
+      visible: true,
     })),
     selected: undefined,
     hints: undefined,

@@ -1,4 +1,4 @@
-import { BoardDefinition, Slot, TileType, TileValue } from "../types";
+import { BoardDefinition, Slot, TileValue } from "../types";
 import { tileValuesMatch } from "../tiles";
 
 export const overlap = (slot1: Slot, slot2: Slot) => {

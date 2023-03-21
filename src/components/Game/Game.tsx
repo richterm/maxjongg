@@ -2,12 +2,7 @@ import React, { FC, useReducer, useRef } from "react";
 import { Board } from "../Board/Board";
 import "./Game.css";
 import type { BoardDefinition } from "../../types";
-import {
-  createInitialState,
-  getBoardColumns,
-  getBoardRows,
-  getHints,
-} from "../../board";
+import { createInitialState, getBoardDimensions, getHints } from "../../board";
 import { reducer } from "./reducer";
 
 type GameProps = {
@@ -16,6 +11,7 @@ type GameProps = {
 
 export const Game: FC<GameProps> = ({ boardDefinition }) => {
   const ref = useRef(null);
+  const dimensions = getBoardDimensions(boardDefinition);
   const [boardState, dispatch] = useReducer(
     reducer,
     boardDefinition,
@@ -32,9 +28,8 @@ export const Game: FC<GameProps> = ({ boardDefinition }) => {
   return (
     <div className="game" onDoubleClick={showHint} ref={ref}>
       <Board
+        dimensions={dimensions}
         boardState={boardState}
-        columns={getBoardColumns(boardDefinition)}
-        rows={getBoardRows(boardDefinition)}
         onTileClick={(tile) => dispatch({ tile, type: "Select" })}
       />
     </div>

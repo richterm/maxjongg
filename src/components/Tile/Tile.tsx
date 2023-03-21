@@ -58,44 +58,44 @@ export const Tile: FC<TileProps> = ({
       <boxGeometry args={[width, height, depth]} attach="geometry" />
       {/* @ts-ignore */}
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-0"
       />
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-1"
       />
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-2"
       />
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-3"
       />
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         map={map}
         attach="material-4"
       />
       <AnimatedMeshPhysicalMaterial
-        clearcoat={.5}
-        clearcoatRoughness={.35}
+        clearcoat={0.1}
+        clearcoatRoughness={0.4}
         normalMap={normalMap}
         emissive={colorSpring.emissive}
         attach="material-5"

@@ -1,10 +1,17 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import { CameraControls } from "@react-three/drei/core";
+import {
+  Bounds,
+  CameraControls,
+  OrbitControls,
+  OrthographicCamera,
+  PerspectiveCamera,
+} from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
 import { Dimensions } from "../../board";
+import { PresentationControls, ScrollControls } from "@react-three/drei";
 
 type OnTileClickType = (tile: TileType) => void;
 
@@ -13,9 +20,6 @@ type BoardProps = {
   onTileClick: OnTileClickType;
   dimensions: Dimensions;
 };
-
-const DEFAULT_AZIMUTH_ANGLE = -0.16;
-const DEFAULT_POLAR_ANGLE = 1.85;
 
 export const Board: FC<BoardProps> = ({
   boardState,
@@ -31,31 +35,23 @@ export const Board: FC<BoardProps> = ({
         near: 0.1,
       }}
     >
-      <CameraControls
-        onChange={(event: any) => console.log(event.target)}
-        smoothTime={0.1}
-        azimuthAngle={DEFAULT_AZIMUTH_ANGLE}
-        minAzimuthAngle={-1 * Math.PI}
-        maxAzimuthAngle={1 * Math.PI}
-        polarAngle={DEFAULT_POLAR_ANGLE}
-        minPolarAngle={0 * Math.PI}
-        maxPolarAngle={1 * Math.PI}
-      />
       <pointLight position={[0, 0, 100]} intensity={0.5} color={"white"} />
-      {boardState.tiles.map((tile) => {
-        return (
-          <Tile
-            {...tile}
-            key={`${tile.x}_${tile.y}_${tile.z}_${tile.value}`}
-            selected={
-              boardState.selected !== undefined &&
-              areEqualTiles(boardState.selected, tile)
-            }
-            hinted={isTileHinted(boardState, tile)}
-            onClick={() => onTileClick(tile)}
-          />
-        );
-      })}
+      <Bounds fit margin={1} observe>
+        {boardState.tiles.map((tile) => {
+          return (
+            <Tile
+              {...tile}
+              key={`${tile.x}_${tile.y}_${tile.z}_${tile.value}`}
+              selected={
+                boardState.selected !== undefined &&
+                areEqualTiles(boardState.selected, tile)
+              }
+              hinted={isTileHinted(boardState, tile)}
+              onClick={() => onTileClick(tile)}
+            />
+          );
+        })}
+      </Bounds>
     </Canvas>
   );
 };

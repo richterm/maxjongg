@@ -1,17 +1,10 @@
 import React, { FC } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  Bounds,
-  CameraControls,
-  OrbitControls,
-  OrthographicCamera,
-  PerspectiveCamera,
-} from "@react-three/drei/core";
+import { Bounds } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
 import { Dimensions } from "../../board";
-import { PresentationControls, ScrollControls } from "@react-three/drei";
 
 type OnTileClickType = (tile: TileType) => void;
 

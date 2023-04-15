@@ -26,7 +26,12 @@ export const Game: FC<GameProps> = ({ boardDefinition }) => {
   }, [boardState]);
 
   return (
-    <div className="game" onDoubleClick={showHint} ref={ref}>
+    <div
+      className="game"
+      style={{ aspectRatio: `${dimensions.maxs.x} / ${dimensions.maxs.y}` }}
+      onDoubleClick={showHint}
+      ref={ref}
+    >
       <Board
         dimensions={dimensions}
         boardState={boardState}

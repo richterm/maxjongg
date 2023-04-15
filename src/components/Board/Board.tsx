@@ -29,7 +29,7 @@ export const Board: FC<BoardProps> = ({
       }}
     >
       <pointLight position={[0, 0, 100]} intensity={0.5} color={"white"} />
-      <Bounds fit margin={1} observe>
+      <Bounds fit observe margin={0.6}>
         {boardState.tiles.map((tile) => {
           return (
             <Tile

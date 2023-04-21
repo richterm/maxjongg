@@ -87,3 +87,12 @@ export const getHints = (boardState: BoardState): TilePair => {
 
   return pair;
 };
+
+
+export const getBoundsMargin = (dimensions: Dimensions) => {
+  const min = Math.min(dimensions.maxs.x, dimensions.maxs.y);
+  const max = Math.max(dimensions.maxs.x, dimensions.maxs.y);
+  const margin = Math.ceil((min/max*10))/10;
+
+  return margin;
+}

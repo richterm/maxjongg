@@ -5,7 +5,7 @@ import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
 import { Dimensions } from "../../board";
-import { getBoundsMargin } from "../../utils";
+import { getBoundsMargin } from "../../board";
 
 type OnTileClickType = (tile: TileType) => void;
 

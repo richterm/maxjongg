@@ -5,6 +5,7 @@ import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "../../types";
 import { areEqualTiles, isTileHinted } from "../../tiles";
 import { Dimensions } from "../../board";
+import { getBoundsMargin } from "../../utils";
 
 type OnTileClickType = (tile: TileType) => void;
 
@@ -29,7 +30,7 @@ export const Board: FC<BoardProps> = ({
       }}
     >
       <pointLight position={[0, 0, 100]} intensity={0.5} color={"white"} />
-      <Bounds fit observe margin={0.6}>
+      <Bounds fit observe margin={getBoundsMargin(dimensions)}>
         {boardState.tiles.map((tile) => {
           return (
             <Tile

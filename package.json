@@ -1,83 +1,18 @@
 {
-  "name": "maxjongg",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@react-spring/three": "^9.6.1",
-    "@react-three/drei": "^9.58.4",
-    "@react-three/fiber": "^8.12.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/gsap": "^3.0.0",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@types/three": "^0.149.0",
-    "gsap": "^3.11.4",
-    "react": "18.2.0",
-    "react-dom": "^18.2.0",
-    "react-github-corner": "^2.5.0",
-    "react-scripts": "5.0.0",
-    "three": "^0.150.1",
-    "typescript": "^4.9.5",
-    "usehooks-ts": "^2.9.1",
-    "web-vitals": "^2.1.0"
-  },
+  "name": "maxjongg2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cross-env CI=true && yarn test && react-scripts build",
-    "test:jest": "react-scripts test",
-    "test:types": "tsc --noEmit",
-    "test:lint": "eslint src/**/*.ts",
-    "test": "yarn test:types && yarn test:lint && yarn test:jest",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "postinstall": "npm run build --workspace shared",
+    "start:game": "npm run dev --workspace game",
+    "build:game": "npm run build --workspace game",
+    "test:unit": "npm run test:unit --workspaces --if-present",
+    "test:types": "npm run test:types --workspaces --if-present"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/node-logger": "^6.5.16",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/react": "^6.5.16",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-plugin-named-exports-order": "^0.0.2",
-    "cross-env": "^7.0.3",
-    "prop-types": "^15.8.1",
-    "webpack": "^5.75.0"
-  }
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ]
 }

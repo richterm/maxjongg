@@ -18,6 +18,7 @@ export default defineConfig({
         "masked-icon.svg",
         "pwa-192x192.png",
         "pwa-256x256.png",
+        "png/**/*.png",
       ],
       manifest: {
         short_name: "maxjongg",

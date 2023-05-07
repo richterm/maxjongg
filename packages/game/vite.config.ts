@@ -19,6 +19,7 @@ export default defineConfig({
         "pwa-192x192.png",
         "pwa-256x256.png",
         "png/**/*.png",
+        "png/**/*.jpg",
       ],
       manifest: {
         short_name: "maxjongg",

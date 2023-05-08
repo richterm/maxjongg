@@ -24,7 +24,11 @@ export const Board: FC<BoardProps> = ({
     <Canvas
       camera={{
         fov: 35,
-        position: [6, -6, 45],
+        position: [
+          0.01 * dimensions.maxs.x,
+          0.01 * dimensions.maxs.y,
+          dimensions.maxs.z * 13,
+        ],
         far: 1000,
         near: 0.1,
       }}

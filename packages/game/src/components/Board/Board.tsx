@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Bounds } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";

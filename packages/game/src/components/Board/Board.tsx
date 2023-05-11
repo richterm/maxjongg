@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Bounds } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
@@ -34,7 +34,7 @@ export const Board: FC<BoardProps> = ({
       }}
     >
       <pointLight position={[0, 0, 100]} intensity={0.5} color={"white"} />
-      <Bounds fit observe margin={getBoundsMargin(dimensions)}>
+      <Bounds fit margin={getBoundsMargin(dimensions)}>
         {boardState.tiles.map((tile) => {
           return (
             <Tile

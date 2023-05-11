@@ -41,7 +41,6 @@ export const Tile: FC<TileProps> = ({
   const scaleSpring = useSpring({ scale: visible ? 1 : 0 });
   const colorSpring = useSpring({
     emissive: selected || hinted ? Color.light : Color.dark,
-    edgesColor: selected || hinted ? Color.dark : Color.light,
   });
   const normalMap = useLoader(TextureLoader, `/png/bark_willow_nor_gl_1k.jpg`);
   const map = useLoader(TextureLoader, `/png/${value}.png`);
@@ -100,7 +99,10 @@ export const Tile: FC<TileProps> = ({
         emissive={colorSpring.emissive}
         attach="material-5"
       />
-      <AnimatedEdges scale={1} color={colorSpring.edgesColor} />
+      <AnimatedEdges
+        scale={1}
+        color={selected || hinted ? Color.dark : Color.light}
+      />
     </animated.mesh>
   );
 };

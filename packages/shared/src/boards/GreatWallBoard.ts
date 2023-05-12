@@ -1,5 +1,5 @@
 import { BoardDefinition } from "../types";
-import { fullClassicTileSet } from "./common";
+import { fullClassicTileSet } from "./tilesets";
 
 export const GreatWallBoard: BoardDefinition = {
   name: "Great Wall",

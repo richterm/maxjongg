@@ -1,5 +1,5 @@
 import { BoardDefinition } from "../types";
-import { fullClassicTileSet } from "./common";
+import { fullClassicTileSet } from "./tilesets";
 
 export const TriangleBoard: BoardDefinition = {
   name: "Triangle",
@@ -145,7 +145,7 @@ export const TriangleBoard: BoardDefinition = {
       y: 3,
       z: 0,
     },
-    
+
     {
       x: 5,
       y: 5,
@@ -578,7 +578,6 @@ export const TriangleBoard: BoardDefinition = {
       z: 1,
     },
 
-
     {
       x: 15,
       y: 13,
@@ -588,131 +587,131 @@ export const TriangleBoard: BoardDefinition = {
     {
       x: 7,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 9,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 11,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 13,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 15,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 17,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 19,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 21,
       y: 3,
-      z: 2
+      z: 2,
     },
     {
       x: 23,
       y: 3,
-      z: 2
+      z: 2,
     },
 
     {
       x: 9,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 11,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 13,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 15,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 17,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 19,
       y: 5,
-      z: 2
+      z: 2,
     },
     {
       x: 21,
       y: 5,
-      z: 2
+      z: 2,
     },
 
     {
       x: 11,
       y: 7,
-      z: 2
+      z: 2,
     },
     {
       x: 13,
       y: 7,
-      z: 2
+      z: 2,
     },
     {
       x: 15,
       y: 7,
-      z: 2
+      z: 2,
     },
     {
       x: 17,
       y: 7,
-      z: 2
+      z: 2,
     },
     {
       x: 19,
       y: 7,
-      z: 2
+      z: 2,
     },
 
     {
       x: 13,
       y: 9,
-      z: 2
+      z: 2,
     },
     {
       x: 15,
       y: 9,
-      z: 2
+      z: 2,
     },
     {
       x: 17,
       y: 9,
-      z: 2
+      z: 2,
     },
 
     {
       x: 15,
       y: 11,
-      z: 2
+      z: 2,
     },
 
     {
@@ -734,21 +733,19 @@ export const TriangleBoard: BoardDefinition = {
     {
       x: 14,
       y: 7,
-      z: 3
+      z: 3,
     },
     {
       x: 16,
       y: 7,
-      z: 3
+      z: 3,
     },
 
     {
       x: 15,
       y: 9,
-      z: 3
+      z: 3,
     },
-
-
   ],
   tiles: [...fullClassicTileSet],
 };

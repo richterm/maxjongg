@@ -1,8 +1,7 @@
 import * as React from "react";
 import "./App.css";
 import { Game } from "./components/Game/Game";
-import { boards } from "shared";
-import { getRandomIndex } from "shared";
+import { boards, getRandomIndex } from "shared";
 import { GithubBanner } from "./components/GithubBanner/GithubBanner";
 
 const App: React.FC = () => {

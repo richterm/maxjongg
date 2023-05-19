@@ -6,7 +6,7 @@ import type {
   TilePair,
 } from "./types";
 import { shuffle } from "./utils";
-import { isSelectable, tileValuesMatch } from "./tiles";
+import { TILE_DEPTH, TILE_HEIGHT, TILE_WIDTH, isSelectable, tileValuesMatch } from "./tiles";
 
 export type Dimensions = {
   mins: {
@@ -31,15 +31,15 @@ export const getBoardDimensions = (
 ): Dimensions => {
   const slotXs = boardDefinition.slots.map((slot) => slot.x);
   const minX = Math.min(...slotXs);
-  const maxX = Math.max(...slotXs) + 2;
+  const maxX = Math.max(...slotXs) + TILE_WIDTH;
 
   const slotYs = boardDefinition.slots.map((slot) => slot.y);
   const minY = Math.min(...slotYs);
-  const maxY = Math.max(...slotYs) + 2;
+  const maxY = Math.max(...slotYs) + TILE_HEIGHT;
 
   const slotZs = boardDefinition.slots.map((slot) => slot.z);
   const minZ = Math.min(...slotZs);
-  const maxZ = Math.max(...slotZs) + 2;
+  const maxZ = Math.max(...slotZs) + TILE_DEPTH;
 
   return {
     mins: {
@@ -105,7 +105,7 @@ export const getBoundsMargin = (dimensions: Dimensions) => {
 export const overlap = (slot1: Slot, slot2: Slot) => {
   const xDifference = Math.abs(slot1.x - slot2.x);
   const yDifference = Math.abs(slot1.y - slot2.y);
-  return xDifference < 2 && yDifference < 2 && slot1.z === slot2.z;
+  return xDifference < TILE_WIDTH && yDifference < TILE_HEIGHT && slot1.z === slot2.z;
 };
 
 export const anyOverlaps = (tiles: Array<Slot>) =>

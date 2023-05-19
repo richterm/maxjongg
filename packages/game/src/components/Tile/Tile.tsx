@@ -1,5 +1,5 @@
 import { FC } from "react";
-import type { TileValue } from "shared";
+import { TileValue, TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH } from "shared";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Edges } from "@react-three/drei";
@@ -15,10 +15,6 @@ type TileProps = {
   selected?: boolean;
   onClick?: () => void;
 };
-
-const height = 2;
-const width = 2;
-const depth = 1;
 
 enum Color {
   light = "hsl(263, 27%, 58%)",
@@ -54,7 +50,7 @@ export const Tile: FC<TileProps> = ({
       }}
       scale={scaleSpring.scale}
     >
-      <boxGeometry args={[width, height, depth]} attach="geometry" />
+      <boxGeometry args={[TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH]} attach="geometry" />
       {/* @ts-expect-error foo */}
       <AnimatedMeshPhysicalMaterial
         clearcoat={0.1}

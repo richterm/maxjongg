@@ -6,11 +6,15 @@ import type {
   TileValue,
 } from "./types";
 
+export const TILE_HEIGHT = 1;
+export const TILE_WIDTH = 1;
+export const TILE_DEPTH = 1;
+
 export const hasLeftNeighbors = (boardState: BoardState, tile: TileType) => {
   const candidates = boardState.tiles.filter(
     (tileOnBoard) =>
-      tileOnBoard.x === tile.x - 2 &&
-      [tile.y, tile.y - 1, tile.y + 1].includes(tileOnBoard.y) &&
+      tileOnBoard.x === tile.x - TILE_WIDTH &&
+      [tile.y, tile.y - (TILE_HEIGHT / 2), tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y) &&
       tileOnBoard.z === tile.z
   );
   const result = candidates.some(
@@ -22,8 +26,8 @@ export const hasLeftNeighbors = (boardState: BoardState, tile: TileType) => {
 export const hasRightNeighbors = (boardState: BoardState, tile: TileType) => {
   const candidates = boardState.tiles.filter(
     (tileOnBoard) =>
-      tileOnBoard.x === tile.x + 2 &&
-      [tile.y, tile.y - 1, tile.y + 1].includes(tileOnBoard.y) &&
+      tileOnBoard.x === tile.x + TILE_WIDTH &&
+      [tile.y, tile.y - (TILE_HEIGHT / 2), tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y) &&
       tileOnBoard.z === tile.z
   );
   const result = candidates.some(
@@ -36,9 +40,9 @@ export const hasTilesOnTop = (boardState: BoardState, tile: TileType) => {
   const result = boardState.tiles
     .filter(
       (tileOnBoard) =>
-        tileOnBoard.z === tile.z + 1 &&
-        [tile.x - 1, tile.x, tile.x + 1].includes(tileOnBoard.x) &&
-        [tile.y - 1, tile.y, tile.y + 1].includes(tileOnBoard.y)
+        tileOnBoard.z === tile.z + TILE_DEPTH &&
+        [tile.x - (TILE_WIDTH / 2), tile.x, tile.x + (TILE_WIDTH / 2)].includes(tileOnBoard.x) &&
+        [tile.y - (TILE_HEIGHT / 2), tile.y, tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y)
     )
     .some((tileOnBoard) => tileOnBoard.visible);
   return result;

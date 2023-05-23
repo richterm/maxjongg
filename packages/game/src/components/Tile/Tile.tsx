@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TileValue, TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH } from "shared";
+import { TileValue, TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH, getTileColors } from "shared";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Edges } from "@react-three/drei";
@@ -16,11 +16,6 @@ type TileProps = {
   onClick?: () => void;
 };
 
-enum Color {
-  light = "hsl(263, 27%, 58%)",
-  dark = "hsl(263, 27%, 18%)",
-}
-
 const AnimatedMeshPhysicalMaterial = animated.meshPhysicalMaterial;
 const AnimatedEdges = animated(Edges);
 
@@ -34,9 +29,14 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick,
 }) => {
+  const { edges, faces } = getTileColors({
+    darkMode: true,
+    selected,
+    hinted
+  })
   const scaleSpring = useSpring({ scale: visible ? 1 : 0 });
   const colorSpring = useSpring({
-    emissive: selected || hinted ? Color.light : Color.dark,
+    emissive: faces,
   });
   const normalMap = useLoader(TextureLoader, `/png/bark_willow_nor_gl_1k.jpg`);
   const map = useLoader(TextureLoader, `/png/${value}.png`);
@@ -97,7 +97,7 @@ export const Tile: FC<TileProps> = ({
       />
       <AnimatedEdges
         scale={1}
-        color={selected || hinted ? Color.dark : Color.light}
+        color={edges}
       />
     </animated.mesh>
   );

@@ -104,3 +104,18 @@ export const isTileHinted = (boardState: BoardState, tile: TileType) => {
     areEqualTiles(tile, boardState.hints![1])
   );
 };
+
+export enum Color {
+  light = "hsl(263, 27%, 48%)",
+  dark = "hsl(263, 27%, 18%)",
+}
+
+export const getTileColors = ({darkMode, selected, hinted}: { selected: boolean; hinted: boolean; darkMode: boolean}) => {
+  const baseColor = darkMode ? Color.dark : Color.light;
+  const highlightColor = darkMode ? Color.light : Color.dark;
+
+  return {
+    edges: selected || hinted ? baseColor : highlightColor,
+    faces: selected || hinted ? highlightColor : baseColor,
+  }
+}

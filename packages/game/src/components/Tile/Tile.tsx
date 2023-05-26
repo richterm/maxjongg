@@ -5,7 +5,6 @@ import {
   TILE_HEIGHT,
   TILE_DEPTH,
   getTileColors,
-  Color,
 } from "shared";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";

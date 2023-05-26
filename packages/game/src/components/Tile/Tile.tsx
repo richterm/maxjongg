@@ -1,8 +1,15 @@
 import { FC } from "react";
-import { TileValue, TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH, getTileColors } from "shared";
+import {
+  TileValue,
+  TILE_WIDTH,
+  TILE_HEIGHT,
+  TILE_DEPTH,
+  getTileColors,
+  Color,
+} from "shared";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
-import { Edges } from "@react-three/drei";
+import { Box, Edges } from "@react-three/drei";
 import { animated, useSpring } from "@react-spring/three";
 
 type TileProps = {
@@ -16,6 +23,7 @@ type TileProps = {
   onClick?: () => void;
 };
 
+const AnimatedBox = animated(Box);
 const AnimatedMeshPhysicalMaterial = animated.meshPhysicalMaterial;
 const AnimatedEdges = animated(Edges);
 
@@ -32,8 +40,8 @@ export const Tile: FC<TileProps> = ({
   const { edges, faces } = getTileColors({
     darkMode: true,
     selected,
-    hinted
-  })
+    hinted,
+  });
   const scaleSpring = useSpring({ scale: visible ? 1 : 0 });
   const colorSpring = useSpring({
     emissive: faces,
@@ -42,7 +50,7 @@ export const Tile: FC<TileProps> = ({
   const map = useLoader(TextureLoader, `/png/${value}.png`);
 
   return (
-    <animated.mesh
+    <AnimatedBox
       position={[x, y, z]}
       onClick={(event) => {
         event.stopPropagation();
@@ -50,7 +58,10 @@ export const Tile: FC<TileProps> = ({
       }}
       scale={scaleSpring.scale}
     >
-      <boxGeometry args={[TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH]} attach="geometry" />
+      <boxGeometry
+        args={[TILE_WIDTH, TILE_HEIGHT, TILE_DEPTH]}
+        attach="geometry"
+      />
       {/* @ts-expect-error foo */}
       <AnimatedMeshPhysicalMaterial
         clearcoat={0.1}
@@ -95,10 +106,7 @@ export const Tile: FC<TileProps> = ({
         emissive={colorSpring.emissive}
         attach="material-5"
       />
-      <AnimatedEdges
-        scale={1}
-        color={edges}
-      />
-    </animated.mesh>
+      <AnimatedEdges scale={1} color={edges} />
+    </AnimatedBox>
   );
 };

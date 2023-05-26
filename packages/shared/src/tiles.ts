@@ -14,12 +14,12 @@ export const hasLeftNeighbors = (boardState: BoardState, tile: TileType) => {
   const candidates = boardState.tiles.filter(
     (tileOnBoard) =>
       tileOnBoard.x === tile.x - TILE_WIDTH &&
-      [tile.y, tile.y - (TILE_HEIGHT / 2), tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y) &&
+      [tile.y, tile.y - TILE_HEIGHT / 2, tile.y + TILE_HEIGHT / 2].includes(
+        tileOnBoard.y
+      ) &&
       tileOnBoard.z === tile.z
   );
-  const result = candidates.some(
-    (tileOnBoard) => tileOnBoard.visible
-  );
+  const result = candidates.some((tileOnBoard) => tileOnBoard.visible);
   return result;
 };
 
@@ -27,12 +27,12 @@ export const hasRightNeighbors = (boardState: BoardState, tile: TileType) => {
   const candidates = boardState.tiles.filter(
     (tileOnBoard) =>
       tileOnBoard.x === tile.x + TILE_WIDTH &&
-      [tile.y, tile.y - (TILE_HEIGHT / 2), tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y) &&
+      [tile.y, tile.y - TILE_HEIGHT / 2, tile.y + TILE_HEIGHT / 2].includes(
+        tileOnBoard.y
+      ) &&
       tileOnBoard.z === tile.z
   );
-  const result = candidates.some(
-    (tileOnBoard) => tileOnBoard.visible
-  );
+  const result = candidates.some((tileOnBoard) => tileOnBoard.visible);
   return result;
 };
 
@@ -41,8 +41,12 @@ export const hasTilesOnTop = (boardState: BoardState, tile: TileType) => {
     .filter(
       (tileOnBoard) =>
         tileOnBoard.z === tile.z + TILE_DEPTH &&
-        [tile.x - (TILE_WIDTH / 2), tile.x, tile.x + (TILE_WIDTH / 2)].includes(tileOnBoard.x) &&
-        [tile.y - (TILE_HEIGHT / 2), tile.y, tile.y + (TILE_HEIGHT / 2)].includes(tileOnBoard.y)
+        [tile.x - TILE_WIDTH / 2, tile.x, tile.x + TILE_WIDTH / 2].includes(
+          tileOnBoard.x
+        ) &&
+        [tile.y - TILE_HEIGHT / 2, tile.y, tile.y + TILE_HEIGHT / 2].includes(
+          tileOnBoard.y
+        )
     )
     .some((tileOnBoard) => tileOnBoard.visible);
   return result;
@@ -106,16 +110,25 @@ export const isTileHinted = (boardState: BoardState, tile: TileType) => {
 };
 
 export enum Color {
-  light = "hsl(263, 27%, 48%)",
+  light = "hsl(263, 27%, 38%)",
   dark = "hsl(263, 27%, 18%)",
+  darkest = "hsl(263, 27%, 4%)",
 }
 
-export const getTileColors = ({darkMode, selected, hinted}: { selected: boolean; hinted: boolean; darkMode: boolean}) => {
+export const getTileColors = ({
+  darkMode,
+  selected,
+  hinted,
+}: {
+  selected: boolean;
+  hinted: boolean;
+  darkMode: boolean;
+}) => {
   const baseColor = darkMode ? Color.dark : Color.light;
   const highlightColor = darkMode ? Color.light : Color.dark;
 
   return {
-    edges: selected || hinted ? baseColor : highlightColor,
+    edges: Color.darkest,
     faces: selected || hinted ? highlightColor : baseColor,
-  }
-}
+  };
+};

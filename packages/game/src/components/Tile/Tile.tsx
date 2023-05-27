@@ -10,6 +10,7 @@ import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { Box, Edges } from "@react-three/drei";
 import { animated, useSpring } from "@react-spring/three";
+import { useDarkMode } from "usehooks-ts";
 
 type TileProps = {
   visible: boolean;
@@ -36,8 +37,9 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick,
 }) => {
+  const { isDarkMode: darkMode } = useDarkMode();
   const { edges, faces } = getTileColors({
-    darkMode: true,
+    darkMode,
     selected,
     hinted,
   });

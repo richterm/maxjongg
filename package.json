@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch:shared": "npm run watch --workspace shared",
     "postinstall": "npm run build --workspace shared",
     "start:game": "npm run dev --workspace game",
     "build:game": "npm run build --workspace game",

@@ -4,7 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #121212;
+  background-color: hsl(0deg 0% 80%);
+}
+
+@media(prefers-color-scheme: dark) {
+  .App {
+    background-color: hsl(0deg 0% 7%);
+  }
 }
 
 .octo-body {

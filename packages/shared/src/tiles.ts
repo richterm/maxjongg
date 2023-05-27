@@ -109,10 +109,13 @@ export const isTileHinted = (boardState: BoardState, tile: TileType) => {
   );
 };
 
+const hue = 263;
+const saturation = "15%";
+
 export enum Color {
-  light = "hsl(263, 27%, 38%)",
-  dark = "hsl(263, 27%, 18%)",
-  darkest = "hsl(263, 27%, 4%)",
+  light = `hsl(${hue}, ${saturation}, 30%)`,
+  dark = `hsl(${hue}, ${saturation}, 18%)`,
+  darkest = `hsl(${hue}, ${saturation}, 4%)`,
 }
 
 export const getTileColors = ({

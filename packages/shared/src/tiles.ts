@@ -113,9 +113,10 @@ const hue = 263;
 const saturation = "15%";
 
 export enum Color {
+  lighter = `hsl(${hue}, ${saturation}, 50%)`,
   light = `hsl(${hue}, ${saturation}, 30%)`,
   dark = `hsl(${hue}, ${saturation}, 18%)`,
-  darkest = `hsl(${hue}, ${saturation}, 4%)`,
+  darker = `hsl(${hue}, ${saturation}, 4%)`,
 }
 
 export const getTileColors = ({
@@ -128,10 +129,10 @@ export const getTileColors = ({
   darkMode: boolean;
 }) => {
   const baseColor = darkMode ? Color.dark : Color.light;
-  const highlightColor = darkMode ? Color.light : Color.dark;
+  const highlightColor = darkMode ? Color.light : Color.lighter;
 
   return {
-    edges: Color.darkest,
+    edges: darkMode ? Color.darker : Color.dark,
     faces: selected || hinted ? highlightColor : baseColor,
   };
 };

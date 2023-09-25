@@ -1,8 +1,12 @@
 import React, { FC, useReducer, useRef } from "react";
 import { Board } from "../Board/Board";
 import "./Game.css";
-import type { BoardDefinition } from "shared";
-import { createInitialState, getBoardDimensions, getHints } from "shared";
+import {
+  type BoardDefinition,
+  createInitialState,
+  getBoardDimensions,
+  getHints,
+} from "shared";
 import { reducer } from "./reducer";
 
 type GameProps = {

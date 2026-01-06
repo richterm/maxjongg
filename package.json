@@ -15,5 +15,8 @@
   "license": "ISC",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "vercel": "^50.1.4"
+  }
 }

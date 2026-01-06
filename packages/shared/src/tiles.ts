@@ -114,7 +114,7 @@ const saturation = "15%";
 
 export enum Color {
   lighter = `hsl(${hue}, ${saturation}, 50%)`,
-  light = `hsl(${hue}, ${saturation}, 30%)`,
+  light = `hsl(${hue}, ${saturation}, 35%)`,
   dark = `hsl(${hue}, ${saturation}, 18%)`,
   darker = `hsl(${hue}, ${saturation}, 4%)`,
 }

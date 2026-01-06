@@ -8,9 +8,8 @@ import {
 } from "shared";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
-import { Box, Edges } from "@react-three/drei";
+import { RoundedBox, Edges } from "@react-three/drei";
 import { animated, useSpring } from "@react-spring/three";
-import { useDarkMode } from "usehooks-ts";
 
 type TileProps = {
   visible: boolean;
@@ -23,7 +22,7 @@ type TileProps = {
   onClick?: () => void;
 };
 
-const AnimatedBox = animated(Box);
+const AnimatedBox = animated(RoundedBox);
 const AnimatedMeshPhysicalMaterial = animated.meshPhysicalMaterial;
 const AnimatedEdges = animated(Edges);
 
@@ -37,9 +36,8 @@ export const Tile: FC<TileProps> = ({
   selected = false,
   onClick,
 }) => {
-  const { isDarkMode: darkMode } = useDarkMode();
   const { edges, faces } = getTileColors({
-    darkMode,
+    darkMode: false,
     selected,
     hinted,
   });

@@ -5,8 +5,8 @@
   background-color: hsl(0deg 0% 80%);
 }
 
-@media(prefers-color-scheme: dark) {
-  .game {  
+@media (prefers-color-scheme: dark) {
+  .game {
     background-color: hsl(0deg 0% 7%);
   }
 }

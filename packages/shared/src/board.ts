@@ -6,7 +6,13 @@ import type {
   TilePair,
 } from "./types";
 import { shuffle } from "./utils";
-import { TILE_DEPTH, TILE_HEIGHT, TILE_WIDTH, isSelectable, tileValuesMatch } from "./tiles";
+import {
+  TILE_DEPTH,
+  TILE_HEIGHT,
+  TILE_WIDTH,
+  isSelectable,
+  tileValuesMatch,
+} from "./tiles";
 
 export type Dimensions = {
   mins: {
@@ -99,13 +105,22 @@ export const getBoundsMargin = (dimensions: Dimensions) => {
   const max = Math.max(dimensions.maxs.x, dimensions.maxs.y);
   const margin = Math.ceil((min / max) * 10) / 10;
 
-  return margin;
+  return margin * 1.3;
+};
+
+export const getCameraPositionZ = (dimensions: Dimensions) => {
+  const min = Math.min(dimensions.maxs.x, dimensions.maxs.y);
+  const max = Math.max(dimensions.maxs.x, dimensions.maxs.y);
+
+  return (max / min) * (30 - 7) + 7;
 };
 
 export const overlap = (slot1: Slot, slot2: Slot) => {
   const xDifference = Math.abs(slot1.x - slot2.x);
   const yDifference = Math.abs(slot1.y - slot2.y);
-  return xDifference < TILE_WIDTH && yDifference < TILE_HEIGHT && slot1.z === slot2.z;
+  return (
+    xDifference < TILE_WIDTH && yDifference < TILE_HEIGHT && slot1.z === slot2.z
+  );
 };
 
 export const anyOverlaps = (tiles: Array<Slot>) =>

@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Bounds } from "@react-three/drei/core";
 import { Tile } from "../Tile/Tile";
 import type { BoardState, TileType } from "shared";
-import { areEqualTiles, isTileHinted } from "shared";
+import { areEqualTiles, getCameraPositionZ, isTileHinted } from "shared";
 import { Dimensions } from "shared";
 import { getBoundsMargin } from "shared";
 
@@ -27,7 +27,7 @@ export const Board: FC<BoardProps> = ({
         position: [
           0.01 * dimensions.maxs.x,
           0.01 * dimensions.maxs.y,
-          dimensions.maxs.z * 7,
+          getCameraPositionZ(dimensions),
         ],
         far: 1000,
         near: 0.1,
